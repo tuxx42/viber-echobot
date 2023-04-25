@@ -18,14 +18,16 @@ message_schema = MessageRequest(strict=True)
 vibersig = 'X-Viber-Content-Signature'
 
 bot_configuration = BotConfiguration(
-   name='PythonSampleBot',
+   name='Codes24'
+     ,
    avatar='http://viber.com/avatar.jpg',
-   auth_token='xxx'
+   auth_token='50e8d1281ca7e5c6-2e462af8e7fda68e-93203ff5ca380e61'
 )
 viber = Api(bot_configuration)
 # viber.set_webhook('https://foobar/incoming')
 
-app = Flask(__name__)
+app = Flask(__flask__)
+
 
 
 @app.route('/send', methods=['POST'])
@@ -38,8 +40,8 @@ def send():
         return Response(jsonify({"errors": err.messages}), status=400)
 
     result = result.data
-    message = TextMessage(text=result['message'])
-    viber.send_messages(result['name'], [message])
+    message = TextMessage(text=result['Hi'])
+    viber.send_messages(result['Codes24'], [message])
     return Response(status=200)
 
 
